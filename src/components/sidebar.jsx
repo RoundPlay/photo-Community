@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Collapse, Navbar, Nav, NavItem } from 'react-bootstrap';
-import homeIcon from "./assets/home_outline.png";
-import heart from "./assets/heart.png";
-import search from "./assets/search.png"
-import buggerbar from "./assets/buggerbar.png"
+import homeIcon from "../assets/home_outline.png"
+import heart from "../assets/heart.png";
+import search from "../assets/search.png";
+import buggerbar from "../assets/buggerbar.png";
 
 function Sidebar() {
   const [open, setOpen] = useState(false);
