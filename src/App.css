@@ -1,0 +1,37 @@
+
+.nav-menu {
+  padding: 10px;
+  margin : 10px;
+  width: 100%;
+  position: relative; /* 자식 요소의 위치를 조정하기 위해 필요 */
+  box-sizing: border-box;
+
+
+}
+
+.nav-menu:hover::before{
+  content: ''; /* 가상 요소 추가 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5); /* 회색 투명 배경 */
+  z-index: 1; /* 버튼 위로 올라오게 하기 */
+  border-radius: 10px;
+}
+
+.nav-menu Button {
+  position: relative; /* 버튼이 가상 요소 위에 있도록 설정 */
+  z-index: 2; /* 버튼이 가상 요소 위에 나타나도록 설정 */
+}
+
+.text-black{
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.nav-menu:active {
+  text-decoration: underline;
+  font-weight: bold;
+}
