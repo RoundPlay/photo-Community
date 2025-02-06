@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Sidebar } from '../components/sidebar';
-import data from './../data.js';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function MainPage() {
-  let [cardlist] = useState(data);
+  let [cardlist, setCardlist] = useState([]);
   let navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('/data/data.json').then((result) => {
+      setCardlist(result.data);
+    });
+  }, []);
 
   return (
     <div className="main-container">

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,11 +20,13 @@ function App() {
           path="/post/:id"
           element={<Post />}
         />
-        <Route path='/' element={<Home></Home>}></Route>
-            <Route
-          path="/login"
-          element={<Login />}
-        />
+        {/* <Route
+          path="/"
+          element={<MainPage />}
+        /> */}
+        <Route
+          path="/"
+          element={<Home></Home>}></Route>
       </Routes>
     </>
   );
