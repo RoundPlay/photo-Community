@@ -1,24 +1,19 @@
-
 .nav-menu {
   padding: 10px;
-  margin : 10px;
+  margin: 10px;
   width: 100%;
   position: relative; /* 자식 요소의 위치를 조정하기 위해 필요 */
   box-sizing: border-box;
-
-
 }
-.nav-menu-like{
+.nav-menu-like {
   padding: 10px;
-  margin : 10px;
+  margin: 10px;
   width: 100%;
   position: relative; /* 자식 요소의 위치를 조정하기 위해 필요 */
   box-sizing: border-box;
-
-
 }
 
-.nav-menu:hover::before{
+.nav-menu:hover::before {
   content: ''; /* 가상 요소 추가 */
   position: absolute;
   top: 0;
@@ -30,7 +25,7 @@
   border-radius: 10px;
 }
 
-.nav-menu-like:hover::before{
+.nav-menu-like:hover::before {
   content: ''; /* 가상 요소 추가 */
   position: absolute;
   top: 0;
@@ -47,7 +42,7 @@
   z-index: 2; /* 버튼이 가상 요소 위에 나타나도록 설정 */
 }
 
-.text-black{
+.text-black {
   font-size: 18px;
   text-decoration: none;
 }
@@ -57,12 +52,10 @@
   font-weight: bold;
 }
 
-.sidebar-drawer{
+.sidebar-drawer {
   position: fixed;
   left: 50px;
-  border-right:'1px solid lightgray';
+  border-right: '1px solid lightgray';
   border-radius: 0px 10px 10px 0px;
   box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5);
-  
-
 }
