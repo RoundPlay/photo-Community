@@ -1,6 +1,10 @@
+
+import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Home } from './pages/home';
+
 import Login from './pages/login';
 import MainPage from './pages/MainPage';
 import Post from './pages/post';
@@ -10,16 +14,17 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
-          element={<MainPage />}
-        />
-        <Route
           path="/login"
           element={<Login />}
         />
         <Route
           path="/post/:id"
           element={<Post />}
+        />
+        <Route path='/' element={<Home></Home>}></Route>
+            <Route
+          path="/login"
+          element={<Login />}
         />
       </Routes>
     </>
