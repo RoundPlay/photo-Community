@@ -60,24 +60,3 @@
   box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5);
 }
 
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* 전체 화면 높이를 차지하여 중앙 정렬 */
-  left: 80%;
-}
-
-.card {
-  width: 30%;
-}
-
-/* 
-position: 'absolute',
-top: '40%',
-left: '55%',
-transform: 'translate(-50%, -50%)',
-width: '103vh',
-height: '70vh',
-minWidth: '630px',
-minHeight: '450px', */
