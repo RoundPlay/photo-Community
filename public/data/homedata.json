@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "시청",
+    "longitude": 126.9779692,
+    "latitude": 37.566535,
+    "image": "https://ticketimage.interpark.com/Play/image/large/24/24006928_p.gif",
+    "likes": 120,
+    "content": "서울시청의 아름다운 풍경입니다. 많은 사람들이 방문하는 명소입니다.",
+    "date": "2025-02-10T12:00:00Z"
+  },
+  {
+    "id": 2,
+    "title": "시청",
+    "longitude": 128.591255,
+    "latitude": 35.870344,
+    "image": "https://ticketimage.interpark.com/Play/image/large/24/24006928_p.gif",
+    "likes": 45,
+    "content": "대구의 문화와 역사적인 장소들을 소개합니다. 이곳은 관광지로 유명합니다.",
+    "date": "2025-02-08T15:30:00Z"
+  },
+  {
+    "id": 3,
+    "title": "시청",
+    "longitude": 126.989255,
+    "latitude": 37.557835,
+    "image": "https://ticketimage.interpark.com/Play/image/large/24/24006928_p.gif",
+    "likes": 78,
+    "content": "서울의 경복궁은 고궁으로 유명하며, 많은 문화재가 있습니다.",
+    "date": "2025-02-08T10:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "시청",
+    "longitude": 129.07564,
+    "latitude": 35.179554,
+    "image": "https://ticketimage.interpark.com/Play/image/large/24/24006928_p.gif",
+    "likes": 32,
+    "content": "부산의 해운대는 여름철 관광객들로 북적이는 아름다운 해변입니다.",
+    "date": "2025-02-08T18:45:00Z"
+  },
+  {
+    "id": 5,
+    "title": "시청",
+    "longitude": 126.978388,
+    "latitude": 37.566609,
+    "image": "https://ticketimage.interpark.com/Play/image/large/24/24006928_p.gif",
+    "likes": 58,
+    "content": "서울의 밤은 정말 아름답습니다. 야경이 멋진 명소가 많이 있습니다.",
+    "date": "2025-02-08T20:00:00Z"
+  }
+]
