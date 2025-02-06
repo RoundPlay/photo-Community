@@ -1,26 +1,25 @@
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Sidebar } from './components/sidebar';
 import Login from './pages/login';
+import MainPage from './pages/MainPage';
+import Post from './pages/post';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<Sidebar />}
+          element={<MainPage />}
         />
         <Route
           path="/login"
           element={<Login />}
+        />
+        <Route
+          path="/post/:id"
+          element={<Post />}
         />
       </Routes>
     </>
