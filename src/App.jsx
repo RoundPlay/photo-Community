@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
-import { Sidebar } from './components/sidebar';
-function App() {
-  const [count, setCount] = useState(0)
+import './App.css';
+import { Home } from './pages/home';
 
+function App() {
   return (
     <>
-      <Sidebar></Sidebar>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
