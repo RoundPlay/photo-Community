@@ -5,28 +5,19 @@ import './App.css';
 import { Home } from './pages/home';
 
 import Login from './pages/login';
-import MainPage from './pages/MainPage';
+
 import Post from './pages/post';
 
 function App() {
   return (
     <>
       <Routes>
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-        <Route
-          path="/post/:id"
-          element={<Post />}
-        />
-        {/* <Route
-          path="/"
-          element={<MainPage />}
-        /> */}
-        <Route
-          path="/"
-          element={<Home></Home>}></Route>
+
+        <Route path='/login' element={<Login />} />
+        <Route path='/post/:id' element={<Post />} />
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/login' element={<Login />} />
+
       </Routes>
     </>
   );

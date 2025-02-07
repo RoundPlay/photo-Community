@@ -1,16 +1,24 @@
 import { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
-import { HomeCard } from '../components/homeCard';
+import { Card } from '../components/homeCard';
 import { Sidebar } from '../components/sidebar';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import plus from '../assets/plus.png';
 
 function Home() {
   const mapRef = useRef(null);
+  const modalMapRef = useRef(null);
   const lat = 37.5665; // 위도 숫자로 넣어주기
   const lng = 126.978086; // 경도 숫자로 넣어주기
 
   const [allPosts, setAllPosts] = useState([]); // ✅ 전체 데이터
   const [oneWeekPosts, setOneWeekPosts] = useState([]); // ✅ 7일 후까지의 데이터
   const [futurePosts, setFuturePosts] = useState([]); // ✅ 오늘 이후의 모든 데이터
+  const [isModalOpen, setIsModalOpen] = useState(false); // 글쓰기 창 열림/닫힘 상태
+  const [markerPosition, setMarkerPosition] = useState({ lat: 0, lng: 0 }); // 클릭한 위치의 좌표
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -68,6 +76,32 @@ function Home() {
       });
     }
   }, [oneWeekPosts]);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  // 지도 클릭 시 좌표 받기
+  const handleMapClick = (e) => {
+    const clickedPosition = e.coord;
+    setMarkerPosition({
+      lat: clickedPosition.lat(),
+      lng: clickedPosition.lng(),
+    });
+  };
+
+  useEffect(() => {
+    const { naver } = window;
+    if (modalMapRef.current && naver) {
+      const location = new naver.maps.LatLng(lat, lng);
+      const map = new naver.maps.Map(modalMapRef.current, {
+        center: location,
+        zoom: 17,
+      });
+
+      naver.maps.Event.addListener(map, 'click', handleMapClick); // 클릭 이벤트 추가
+    }
+  }, [isModalOpen]);
+
   return (
     <>
       <Sidebar></Sidebar>
@@ -84,19 +118,72 @@ function Home() {
           minWidth: '630px',
           minHeight: '450px',
         }}></div>
-
-      {oneWeekPosts.map((post, i) => (
-        <HomeCard
-          key={i}
-          id={post.id}
-          title={post.title}
-          longitude={post.longitude}
-          latitude={post.latitude}
-          image={post.image}
-          like={post.like}
-          data={post.date}
+      <div className='card-list'>
+        {oneWeekPosts.map((post, i) => (
+          <Card
+            key={i}
+            id={post.id}
+            title={post.title}
+            date={post.date}
+            image={post.image}
+            navigate={navigate}
+          />
+        ))}
+      </div>
+      <div
+        style={{
+          position: 'fixed',
+          bottom: '30px',
+          right: '30px',
+          cursor: 'pointer',
+        }}
+        onClick={openModal}>
+        <img
+          src={plus}
+          alt='plus icon'
+          style={{ width: '50px', height: '50px' }}
         />
-      ))}
+      </div>
+      {isModalOpen && (
+        <div
+          style={{
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            right: '0',
+            bottom: '0',
+            background: 'rgba(0, 0, 0, 0.5)',
+            zIndex: '9999',
+          }}
+          onClick={closeModal}>
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              background: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+              width: '60%',
+              maxWidth: '600px',
+            }}
+            onClick={(e) => e.stopPropagation()}>
+            <h3>글쓰기</h3>
+            <div
+              ref={modalMapRef}
+              style={{
+                width: '100%',
+                height: '400px',
+                borderRadius: '8px',
+                marginBottom: '10px',
+              }}></div>
+            <p>위도: {markerPosition.lat}</p>
+            <p>경도: {markerPosition.lng}</p>
+            <Button onClick={closeModal}>닫기</Button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
