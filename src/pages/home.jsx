@@ -22,7 +22,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get('/data/homedata.json')
+      .get('/data/data.js')
       .then((result) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0); // 시간 초기화 (정확한 비교를 위해)

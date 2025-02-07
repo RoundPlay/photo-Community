@@ -12,10 +12,12 @@ function App() {
   return (
     <>
       <Routes>
+
         <Route path='/login' element={<Login />} />
         <Route path='/post/:id' element={<Post />} />
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login />} />
+
       </Routes>
     </>
   );
