@@ -14,7 +14,7 @@ function Sidebar() {
   const [isMiniOpen, setIsMiniOpen] = useState(false);
   const [isMainOpen, setIsMainOpen] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  console.log(isMiniOpen);
+
   return (
     <>
       {isMainOpen ? (

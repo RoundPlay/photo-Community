@@ -113,11 +113,38 @@
   border-bottom: 1px solid #ddd; /* 이미지와 내용 분리 */
 }
 
-/* 카드 리스트 */
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px; /* 카드 사이 간격 */
+
+
+.slider-wrapper {
+  position: relative; /* 부모 요소 기준 배치 */
+  width: 70%; /* 슬라이더 너비 */
+  margin: 0 auto; /* 기본적으로 가운데 정렬 */
+  transform: translateX(7%); /* 오른쪽으로 10% 밀기 */
+}
+.slick-prev, .slick-next {
+  color:rgb(0, 0, 0); /* 원하는 색상으로 변경 (예: 빨간색) */
 }
 
+.slick-prev:before, .slick-next:before {
+  color:rgb(0, 0, 0); /* 화살표 기호의 색상을 변경 */
+}
+
+.slider-title{
+  position:absolute;
+  top: 90%;
+  left:20%;
+  font-family: 'Arial', sans-serif; /* 글꼴 변경 */
+  font-size: 2rem; /* 글꼴 크기 */
+  font-weight: bold; /* 글씨 굵기 */
+  color: black; /* 글씨 색상 검은색 */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* 텍스트에 밝은 그림자 추가 */
+  background: rgba(255, 255, 255, 0.6); /* 반투명 흰색 배경 */
+  padding: 10px 20px; /* 패딩 추가로 텍스트 여백 조정 */
+  border-radius: 8px; /* 둥근 모서리 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 배경 주변 그림자 */
+  transition: transform 0.3s ease-out; /* 애니메이션 효과 추가 */
+}
+
+.slider-title:hover {
+  transform:scale(1.05); /* 마우스를 올리면 크기가 약간 커짐 */
+}
