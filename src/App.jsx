@@ -22,7 +22,7 @@ function App() {
           element={<Login />}
         />
         <Route
-          path="/post/:id"
+          path="post/:id"
           element={<Post />}
         />
         <Route

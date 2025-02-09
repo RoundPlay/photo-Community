@@ -51,9 +51,8 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get('/data/data.json')
+      .get('http://localhost:8080/api/')
       .then((result) => {
-
         const today = new Date();
         today.setHours(0, 0, 0, 0); // 시간 초기화 (정확한 비교를 위해)
 
@@ -61,21 +60,26 @@ function Home() {
         nextWeek.setDate(today.getDate() + 7);
 
         // ✅ 전체 데이터 저장
-        setAllPosts(result.data);
+        setAllPosts(result.data.data);
+
+        const parseDate = (dateStr) => {
+          return new Date(`${dateStr}T00:00:00`);
+        };
 
         // ✅ 오늘 이후의 데이터 (오늘 포함)
-        const future = result.data.filter((post) => {
-          const postDate = new Date(post.date);
+        const future = result.data.data.filter((post) => {
+          const postDate = parseDate(post.date);
           return postDate >= today;
         });
         setFuturePosts(future);
 
         // ✅ 7일 이내의 데이터 필터링
-        const week = future.filter((post) => {
-          const postDate = new Date(post.date);
+        const week = result.data.data.filter((post) => {
+          const postDate = parseDate(post.date);
           return postDate <= nextWeek;
         });
         setOneWeekPosts(week);
+        console.log(week);
 
       })
       .catch((error) => {
@@ -107,7 +111,7 @@ function Home() {
   
         // 마커 클릭 시 해당 post.id로 이동
         naver.maps.Event.addListener(marker, 'click', () => {
-          window.location.href = `/post/${post.id}`;
+          window.location.href = `/post/${post._id}`;
         });
       });
     }
@@ -181,16 +185,16 @@ function Home() {
         {...sliderSettings} className="custom-slider">
           {
             oneWeekPosts.map((post,i)=>(
+            
               <div key={i}>
               <Card
-              id={post.id}
+              id={post._id}
               title={post.title}
               date={post.date}
               image={post.image}
               navigate={navigate}
             />
             </div>
-      
             )
           )
 

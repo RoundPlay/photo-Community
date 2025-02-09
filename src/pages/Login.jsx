@@ -12,9 +12,9 @@ function Login() {
       alert('아이디 또는 비밀번호를 입력해주세요.');
     } else {
       axios
-        .post('http://localhost:5173/data/user.json', { id: id, password: password })
+        .post('http://localhost:8080/api/signin', { id: id, password: password })
         .then((response) => {
-          if (response.headers[id] === id) {
+          if (response.data.success) {
             alert('로그인 성공');
             navigate('/');
           } else {

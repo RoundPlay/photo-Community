@@ -57,7 +57,7 @@ const EventCreateModal = ({ isModalOpen, closeModal }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+      const response = await fetch('http://localhost:8080/api/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, like: 0 }),

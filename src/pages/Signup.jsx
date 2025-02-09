@@ -22,9 +22,9 @@ function SignUp() {
     //   setIsClick(true); // 사용 가능한 아이디
     // }
     axios
-      .post('http://localhost:5173/data/user.json', { id: id })
+      .post('http://localhost:8080/api/signup/check', { id: id })
       .then((response) => {
-        setDuplicateCheck(response.headers['id-check']);
+        setDuplicateCheck(response.data["id-check"]);
         console.log(duplicateCheck);
       })
       .catch((error) => {
@@ -61,6 +61,7 @@ function SignUp() {
           className="text-danger"
           style={{ marginTop: '3px' }}>
           아이디는 4자 이상이어야 합니다.
+
         </small>
       )}
       {idValidation === true && duplicateCheck === true && (
@@ -143,7 +144,7 @@ function SignUp() {
       return;
     }
 
-    axios.post('http://localhost:5173/data/user.json', { id: id, password: password });
+    axios.post('http://localhost:8080/api/signup/', { id: id, password: password });
 
     alert('회원가입이 완료되었습니다.');
     console.log(id, password);
@@ -226,7 +227,7 @@ function SignUp() {
             <button
               className="btn btn-primary w-50"
               onClick={signup}
-              disabled={duplicateCheck !== true}>
+              disabled={!duplicateCheck}>
               가입 하기
             </button>
           </div>
