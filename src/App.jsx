@@ -7,10 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 
 import { Home } from './pages/home';
-
 import Login from './pages/login';
-
 import Post from './pages/post';
+import SignUp from './pages/Signup';
 
 
 
@@ -18,12 +17,21 @@ function App() {
   return (
     <>
       <Routes>
-
-        <Route path='/login' element={<Login />} />
-        <Route path='/post/:id' element={<Post />} />
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/login' element={<Login />} />
-
+        <Route
+          path="/login"
+          element={<Login />}
+        />
+        <Route
+          path="/post/:id"
+          element={<Post />}
+        />
+        <Route
+          path="/"
+          element={<Home></Home>}></Route>
+        <Route
+          path="/signup"
+          element={<SignUp />}
+        />
       </Routes>
     </>
   );
