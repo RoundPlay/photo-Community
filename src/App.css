@@ -1,15 +1,19 @@
-
 .nav-menu {
   padding: 10px;
-  margin : 10px;
+  margin: 10px;
   width: 100%;
   position: relative; /* 자식 요소의 위치를 조정하기 위해 필요 */
   box-sizing: border-box;
-
-
+}
+.nav-menu-like {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  position: relative; /* 자식 요소의 위치를 조정하기 위해 필요 */
+  box-sizing: border-box;
 }
 
-.nav-menu:hover::before{
+.nav-menu:hover::before {
   content: ''; /* 가상 요소 추가 */
   position: absolute;
   top: 0;
@@ -21,12 +25,24 @@
   border-radius: 10px;
 }
 
+.nav-menu-like:hover::before {
+  content: ''; /* 가상 요소 추가 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5); /* 회색 투명 배경 */
+  z-index: 1; /* 버튼 위로 올라오게 하기 */
+  border-radius: 10px;
+}
+
 .nav-menu Button {
   position: relative; /* 버튼이 가상 요소 위에 있도록 설정 */
   z-index: 2; /* 버튼이 가상 요소 위에 나타나도록 설정 */
 }
 
-.text-black{
+.text-black {
   font-size: 18px;
   text-decoration: none;
 }
@@ -34,4 +50,101 @@
 .nav-menu:active {
   text-decoration: underline;
   font-weight: bold;
+}
+
+.sidebar-drawer {
+  position: fixed;
+  left: 50px;
+  border-right: '1px solid lightgray';
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 10px 0 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* 전체 레이아웃 설정 */
+.main-container {
+  display: flex;
+  height: 100vh;
+  margin: 0; /* 여백 제거 */
+  padding: 0;
+}
+
+/* 콘텐츠 영역 */
+.content {
+  margin-left: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* 지도 섹션 */
+.map {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.map img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+}
+
+.card {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* 내부 요소를 위아래로 정렬 */
+  align-items: center; /* 수평 가운데 정렬 */
+  border: 1px solid #ddd; /* 테두리 */
+  border-radius: 8px; /* 모서리 둥글게 */
+  overflow: hidden; /* 내용 넘침 방지 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+.card-img-top {
+  padding: 10px;
+  width: auto; /* 카드의 가로 너비에 맞춤 */
+  height: 100%; /* 고정된 높이 */
+  object-fit: fill; /* 비율을 유지하며 잘림 */
+  border-bottom: 1px solid #ddd; /* 이미지와 내용 분리 */
+}
+
+
+
+.slider-wrapper {
+  position: relative; /* 부모 요소 기준 배치 */
+  width: 70%; /* 슬라이더 너비 */
+  margin: 0 auto; /* 기본적으로 가운데 정렬 */
+  transform: translateX(7%); /* 오른쪽으로 10% 밀기 */
+}
+.slick-prev, .slick-next {
+  color:rgb(0, 0, 0); /* 원하는 색상으로 변경 (예: 빨간색) */
+}
+
+.slick-prev:before, .slick-next:before {
+  color:rgb(0, 0, 0); /* 화살표 기호의 색상을 변경 */
+}
+
+.slider-title{
+  position:absolute;
+  top: 90%;
+  left:20%;
+  font-family: 'Arial', sans-serif; /* 글꼴 변경 */
+  font-size: 2rem; /* 글꼴 크기 */
+  font-weight: bold; /* 글씨 굵기 */
+  color: black; /* 글씨 색상 검은색 */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* 텍스트에 밝은 그림자 추가 */
+  background: rgba(255, 255, 255, 0.6); /* 반투명 흰색 배경 */
+  padding: 10px 20px; /* 패딩 추가로 텍스트 여백 조정 */
+  border-radius: 8px; /* 둥근 모서리 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 배경 주변 그림자 */
+  transition: transform 0.3s ease-out; /* 애니메이션 효과 추가 */
+}
+
+.slider-title:hover {
+  transform:scale(1.05); /* 마우스를 올리면 크기가 약간 커짐 */
 }
