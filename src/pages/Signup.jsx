@@ -225,7 +225,8 @@ function SignUp() {
           <div className="d-flex justify-content-center">
             <button
               className="btn btn-primary w-50"
-              onClick={signup}>
+              onClick={signup}
+              disabled={duplicateCheck !== true}>
               가입 하기
             </button>
           </div>
